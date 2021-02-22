@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 
 });
 
-const SearchScreen = (props) => {
+const SearchScreen = () => {
     //Todo Init
     let [query, setQuery] = useState('');
     console.log('search screen reloaded');
@@ -33,7 +33,7 @@ const SearchScreen = (props) => {
             {
                 error
                 ? <Text style={styles.error}>Something went wrong:{error.message}</Text>
-                : <SearchResults results={results} />
+                : <SearchResults  results={results} />
             }
             
         </View>

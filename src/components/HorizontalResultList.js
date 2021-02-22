@@ -1,5 +1,6 @@
 import React from 'react';
-import {View,Text,StyleSheet,FlatList} from 'react-native';
+import {View,Text,StyleSheet,FlatList,TouchableOpacity} from 'react-native';
+import {withNavigation} from 'react-navigation';
 import RestaurantThumbnail from './RestaurantThumbnail';
 
 const styles= StyleSheet.create({
@@ -32,7 +33,7 @@ const styles= StyleSheet.create({
     }
 });
 
-const HorizontalResultList= ({title,results})=> {
+const HorizontalResultList= ({title,results,navigation})=> {
     
     if(!results || results.length===0)
         return null;
@@ -47,11 +48,13 @@ const HorizontalResultList= ({title,results})=> {
                     data={results}
                     keyExtractor={item=>item.id}
                     renderItem={({item})=>(
-                        <RestaurantThumbnail 
-                        restaurant={item}/>)}
+                        <TouchableOpacity 
+                            onPress={()=>navigation.navigate('RestaurantDetailsScreen',{id:item.id})}>
+                            <RestaurantThumbnail restaurant={item}/>
+                        </TouchableOpacity>)}
             />
         </View>
     );
 };
 
-export default HorizontalResultList;
+export default withNavigation(HorizontalResultList);

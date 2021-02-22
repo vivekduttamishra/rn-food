@@ -26,14 +26,17 @@ const SearchResults= ({results})=> {
     return (
         <ScrollView>
             <HorizontalResultList 
+                
                 title="Cost Effective" 
                 results={results.filter(r=>r.price=="$")} />
 
             <HorizontalResultList 
+                
                 title="Bit Pricier" 
                 results={results.filter(r=>r.price=="$$")} />
 
-            <HorizontalResultList 
+            <HorizontalResultList
+                
                 title="Big Spender" 
                 results={results.filter(r=>r.price=="$$$"||r.price==="$$$$")} />
 
