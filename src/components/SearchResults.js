@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet,FlatList} from 'react-native';
+import {View,Text,StyleSheet,ScrollView,FlatList} from 'react-native';
 import HorizontalResultList from './HorizontalResultList';
 const styles= StyleSheet.create({
     margin5:{
@@ -24,7 +24,7 @@ const styles= StyleSheet.create({
 const SearchResults= ({results})=> {
     //Todo Init
     return (
-        <View>
+        <ScrollView>
             <HorizontalResultList 
                 title="Cost Effective" 
                 results={results.filter(r=>r.price=="$")} />
@@ -37,9 +37,7 @@ const SearchResults= ({results})=> {
                 title="Big Spender" 
                 results={results.filter(r=>r.price=="$$$"||r.price==="$$$$")} />
 
-
-
-        </View>
+        </ScrollView>
         
     );
 };

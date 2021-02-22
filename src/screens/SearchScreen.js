@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
     margin5: {
         margin: 5
     },
+    container: {
+        flex:1
+    },
     error:{
         fontSize:40,
         color:'darkred'        
@@ -20,11 +23,11 @@ const SearchScreen = (props) => {
     //Todo Init
     let [query, setQuery] = useState('');
     console.log('search screen reloaded');
-    let [search,results,error] = useRestaurants('Chicken');
+    let [search,results,error] = useRestaurants('Indian');
     
 
     return (
-        <View style={styles.margin5}>
+        <View style={styles.container}>
             <SearchBar text={query} onChange={setQuery} onSubmit={search} />
             
             {
